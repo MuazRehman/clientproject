@@ -1,61 +1,1108 @@
- <!DOCTYPE html>
+<!-- 
+             WEATHER-Impulse V2.0
+-->
+
+
+
+<!DOCTYPE html>
 <html>
- <head>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-     <style>
+    <head>
+            <title>Page Title</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Arvo|Josefin+Sans|Mukta|Nunito|Rubik|Varela+Round&display=swap" rel="stylesheet">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+                    <style>
+        body{
+    background-color:rgb(26, 60, 78);
+    font-family:currier new;
+    hieght:1100px;
+    width:310px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+input.searchfield{
+    position:absolute ;
+    top:10px;
+    left:10px;
+    height:20px;
+    width:260px;
+}
+#wicon{
+    hieght:30px;
+    width:30px;
+}
+button.searchbutton{
+    position:absolute;
+    top:10px;
+    left:280px;    
+    height:25px;
+    width:25px;
+    font-size:15px;
+    color:#00A591;
+    background-color:white;
+}
+div.cloudsun{
+    position:absolute;
+    top:100px;
+    left:43%;
+}
+div.sunarc{
+    position:absolute;
+    top:250px;
+    left:60px;
+    width: 200px;
+    height: 100px;
+    border-radius: 100px 100px 0 0;
+    border:2.5px dashed white;
+    border-bottom: none;
+}
+div.sunarea{
+    position:absolute;
+    top:230px;
+    left:35px;
+    height:250px;
+    width:250px;
+    }
 
-     </style>
- </head>
- 
-<body>
-<span id="txt">*Insert City, State, or Country.</span>
-<br />
- <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <h1> </h1>
-  </div>
-  <input type="text" class="form-control" id="selectCity" value="delhi" aria-describedby="basic-addon3">
-  <span class="input-group-text" id="click" onClick="t()">search</span>
-  <br></br>
-</div>
+div.sun{
+    position:absolute;
+    top:90px;
+    left:0px;
+}
+#sn{
+    height:50px;
+    width:50px;
+}
+div.sunrisebg{
+    position:absolute;
+    top :380px;
+    left :3.2258%;
+    height :60px;
+    width :38.7%;
+    background-color :white ;
+     border-radius :15px 0 15px 0;
+} 
+div.sunriset{
+   position :absolute ;
+   top :10px;
+   left:5px ;
+   font-size :20px;
+}
+div.sunrise{
+    position :absolute;
+    top:40px;
+   left:5px;
+    font-size:15px;
+} 
+div.sunsetbg{
+    position :absolute ;
+    top :380px;
+    left :58.0645%;
+    height :60px;
+     width :38.7%;
+     background-color :white ;
+     border-radius :15px 0 15px 0;
+}
+div.sunsett{
+     position :absolute ;
+     top :10px;
+     left :5px;
+     font-size:20px;
+} 
+div.sunset{
+      position :absolute ;
+     top :40px;
+     left :5px;
+     font-size:15px;
+} 
+div.tempu{
+    position:absolute;
+    top:54%;
+    left:5%;
+    font-size:30px;
+}
+div.ws{
+    position:absolute;
+    top:160px;
+    left:26%;
+    height:90px;
+    width:48.5%;
+    text-align:center;
+    font-size:187.5%;
+    text-transform:uppercase;
+    color:white;
+}
+div.windspeedimg{
+    position:absolute;
+    top:5px;
+    left:3.5%;
+}
+div.hum{
+    position:absolute;
+    top:4%;
+    left:65%;
+    font-size:40px;
+}
+#wsimg{
+    height:30px;
+    width:30px;
+}
+div.dow{
+    position:absolute;
+    top:50px;
+    left:40%;
+    height:20px;
+    width:70px;
+    text-align:center;
+    font-size:15px;
+    color:white;
+}
+div.temicon{
+    position:absolute;
+    top:31%;
+    left:3.5%;
+}
+#tempicn{
+    height:30px;
+    width:30px;
+}
+div.himg{
+    position:absolute;
+    top:8%;
+    left:52%;
+}
+#humidimg{
+    height:30px;
+    width:30px;
+}
+div.tempuratmin{
+    position:absolute;
+    top:77%;
+    left:3.5%;
+    font-size:125%;
+}
+div.tempuratmax{
+    position:absolute;
+    top:77%;
+    left:39%;
+    font-size:125%;
+}
+div.line{
+    position:absolute;
+    top:-46%;
+    left:49%;
+    height:250px;
+    width:3px;
+    background-color:#00A591;
+    border-radius:15px 15px 15px 15px;
+    transform:rotate(-70deg);
+}
+div.temphumibg{
+    position:absolute;
+    top:460px;
+    left:3.5%;
+    height:130px;
+    width:93%;
+    background-color:white;
+    border-radius:15px 0 15px 0;
+}
+div.humidityt{
+    position:absolute;
+    top:31%;
+    left:58%;
+    font-size:185.5%;
+}
+div.wisp{
+    position:absolute;
+    top:61%;
+    left:1.75%;
+    font-size:187.5%;
+}
+div.wispbg{
+    position:absolute;
+    top:690px;
+    left:3.5%;
+    height:90px;
+    width:40%;
+    background-color:#FFFFFF;
+    border-radius:15px 0 15px 0;
+}
+div.prsr{
+    position:absolute;
+    top:61%;
+    left:1.75%;
+    font-size:187.5%;
+}
+div.vsb{
+    position:absolute;
+    top:61%;
+    left:1.75%;
+    font-size:187.5%;
+}
+div.cld{
+    position:absolute;
+    top:61%;
+    left:1.75%;
+    font-size:187.5%;
+}
+div.abc{
+    position:absolute;
+    top:39%;
+    left:1.75%;
+    font-size:125%;
+}
+div.pressurebg{
+    position:absolute;
+    top:690px;
+    left:55%;
+    height:90px;
+    width:40%;
+    background-color:#FFFFFF;
+    border-radius:15px 0 15px 0;
+}
+div.pressureimg{
+    position:absolute;
+    top:5.6%;
+    left:3.5%;
+}
+#psrimg{
+    height:30px;
+    width:30px;
+}
+div.pssr{
+    position:absolute;
+    top:39%;
+    left:1.75%;
+    font-size:125%;
+}
+div.rainbg{
+    position:absolute;
+    top:800px;
+    left:3.5%;
+    height:90px;
+    width:40%;
+    background-color:#FFFFFF;
+    border-radius:15px 0 15px 0;
+}
+div.snowbg{
+    position:absolute;
+    top:800px;
+    left:55%;
+    height:90px;
+    width:40%;
+    background-color:#FFFFFF;
+    border-radius:15px 0 15px 0;
+}
+div.sn{
+    position:absolute;
+    top:61%;
+    left:1.75%;
+    font-size:187.5%;
+}
+div.snowt{
+    position:absolute;
+    top:39%;
+    left:1.75%;
+    font-size:125%;
+}
+div.rn{
+    position:absolute;
+    top:61%;
+    left:1.75%;
+    font-size:187.5%;
+}
+div.raint{
+    position:absolute;
+    top:39%;
+    left:1.75%;
+    font-size:125%;
+}
+div.visibilitybg{
+    position:absolute;
+    top:910px;
+    left:3.5%;
+    height:90px;
+    width:40%;
+    background-color:#FFFFFF;
+    border-radius:15px 0 15px 0;
+}
+div.cloudbg{
+    position:absolute;
+    top:910px;
+    left:55%;
+    height:90px;
+    width:40%;
+    background-color:#FFFFFF;
+    border-radius:15px 0 15px 0;
+}
+div.cldt{
+    position:absolute;
+    top:39%;
+    left:1.75%;
+    font-size:125%;
+}
+div.vsbt{
+    position:absolute;
+    top:39%;
+    left:1.75%;
+    font-size:125%;
+}
+div.rnimg{
+    position:absolute;
+    top:5.6%;
+    left:1.75%;
+}
+#rainimg{
+    height:30px;
+    width:30px;
+}
+div.snimg{
+    position:absolute;
+    top:5.6%;
+    left:3.5%;
+}
+#snowimg{
+    height:30px;
+    width:30px;
+}
+div.vsbimg{
+    position:absolute;
+    top:5.6%;
+    left:3.5%;
+}
+#visibilityimg{
+    height:30px;
+    width:30px;
+}
+div.cldimg{
+    position:absolute;
+    top:5.6%;
+    left:3.5%;
+}
+#cloudimg{
+    height:30px;
+    width:30px;
+}
+div.nexttempbg{
+    position:absolute;
+    top:1180px;
+    left:0px;
+    height:60px;
+    width:100%;
+    background-color:white;
+}
+div.nexthumibg{
+    position:absolute;
+    top:1260px;
+    left:0px;
+    height:60px;
+    width:100%;
+    background-color:white;
+}
+div.nextwispeedbg{
+    position:absolute;
+    top:1360px;
+    left:0px;
+    height:60px;
+    width:100%;
+    background-color:white;
+}
+div.nexttemp1{
+    position:absolute;
+    top:58.5%;
+    left:1%;
+    text-align:center;
+}
+div.nexttemp2{
+    position:absolute;
+    top:58.5%;
+    left:21%;
+    text-align:center;
+}
+div.nexttemp3{
+    position:absolute;
+    top:58.5%;
+    left:41%;
+    text-align:center;
+}
+div.nexttemp4{
+    position:absolute;
+    top:58.5%;
+    left:61%;
+    text-align:center;
+}
+div.nexttemp5{
+    position:absolute;
+    top:58.5%;
+    left:81%;
+    text-align:center;
+}
+div.nexthumi1{
+    position:absolute;
+    top:58.5%;
+    left:1%;    
+    text-align:center;
+}
+div.nexthumi2{
+    position:absolute;
+    top:58.5%;
+    left:21%;    
+    text-align:center;
+}
+div.nexthumi3{
+    position:absolute;
+    top:58.5%;
+    left:41%;    
+    text-align:center;
+}
+div.nexthumi4{
+    position:absolute;
+    top:58.5%;
+    left:61%;    
+    text-align:center;
+}
+div.nexthumi5{
+    position:absolute;
+    top:58.5%;
+    left:81%;    
+    text-align:center;
+}
+div.nextwispeed1{
+    position:absolute;
+    top:58.5%;
+    left:1%;   
+    text-align:center;
+}
+div.nextwispeed2{
+    position:absolute;
+    top:58.5%;
+    left:21%;   
+    text-align:center;
+}
+div.nextwispeed3{
+    position:absolute;
+    top:58.5%;
+    left:41%;   
+    text-align:center;
+}
+div.nextwispeed4{
+    position:absolute;
+    top:58.5%;
+    left:61%;   
+    text-align:center;
+}
+div.nextwispeed5{
+    position:absolute;
+    top:58.5%;
+    left:81%;   
+    text-align:center;
+}
+div.forecastt{
+    position:absolute;
+    top:1060px;
+    left:35.5%;
+    font-size:93.75%;
+    color:white;
+}
+div.forecasttline1{
+    position:absolute;
+    top:1056.5px;
+    left:45%;
+    height:1.5px;
+    width:26%;
+    background-color:white;
+}
+div.forecasttline2{
+    position:absolute;
+    top:1078px;
+    left:29%;
+    height:1.5px;
+    width:26%;
+    background-color:white;
+}
+div.temicon1{
+    position:absolute;
+    top:8.5%;
+    left:39%;
+}
+#tempicn1{
+    height:20px;
+    width:20px;
+}
+div.himg1{
+    position:absolute;
+    top:8.5%;
+    left:39%;
+}
+#humidimg1{
+    height:20px;
+    width:20px;
+}
+div.windspeedimg1{
+    position:absolute;
+    top:8.5%;
+    left:39%;
+}
+#wsimg1{
+    height:20px;
+    width:20px;
+}
+div.tept1{
+    position:absolute;
+    top:8.5%;
+    left:52%;
+    font-size:125%;
+}
+div.humit1{
+    position:absolute;
+    top:8.5%;
+    left:52%;
+    font-size:125%;
+}
+div.wispt1{
+    position:absolute;
+    top:8.5%;
+    left:52%;
+    font-size:125%;
+}
+div.templine{
+    position:absolute;
+    top:8.5%;
+    left:47%;
+    height:25px;
+    width:2px;
+    background-color:black;
+}
+div.humiline{
+    position:absolute;
+    top:8.5%;
+    left:47%;
+    height:25px;
+    width:2px;
+    background-color:black;
+}
+div.wispline{
+    position:absolute;
+    top:8.5%;
+    left:47%;
+    height:25px;
+    width:2px;
+    background-color:black;
+}
+div.fadate1{
+    position:absolute;
+    top:1100px;
+    left:3.5%;
+    height:60px;
+    width:23%;
+    text-align:center;
+    color:white;
+    font-size:62.5%;
+}
+div.fadate2{
+    position:absolute;
+    top:1100px;
+    left:21%;
+    height:60px;
+    width:23%;
+    text-align:center;
+    color:white;
+    font-size:62.5%;
+}
+div.fadate3{
+    position:absolute ;
+    top:1100px;
+    left:39%;
+    height:60px;
+    width:23%;
+    text-align:center;
+    color:white;
+    font-size:62.5%;
+}
+div.fadate4{
+    position:absolute;
+    top:1100px ;
+    left:56.5%;
+    height:60px;
+    width:23%;
+    text-align:center;
+    color:white;
+    font-size:62.5%;
+}
+div.fadate5{
+    position:absolute;
+    top:1100px;
+    left:73%;
+    height:60px;
+    width:23%;
+    text-align:center;
+    color:white;
+    font-size:62.5%;
+}  
+footer{
+    position :absolute;
+    top:1460px;
+    left:0px;
+    width :100%;
+    height:150px;
+    background-color:black;
+}
+div.copyright{
+    position:absolute;
+    top:20px;
+    left:60px;
+    color:white;
+}
+a.fbprofile{
+    position:absolute;
+    top:50px;
+    left:35%;
+    padding:5px;
+    text-decoration:none;
+    border:2px solid gray;
+    border-radius:2px;
+    color:white;
+    word-spacing:5px;
+    text-align:center;
+}
+a.instaprofile{
+    position:absolute;
+    top:80px;
+    left:30%;
+    padding:5px;
+    text-decoration:none;
+    border:2px solid gray;
+    border-radius:2px;
+    color:white;
+    word-spacing:5px;
+    text-align:center;
+}
+a.twitterprofile{
+    position:absolute;
+    top:110px;
+    left:38%;
+    padding:5px;
+    text-decoration:none;
+    border:2px solid gray;
+    border-radius:2px;
+    color:white;
+    word-spacing:5px;
+    text-align:center;
+}
+        </style>
+                </head>
+                <body>
+                    <div class="temphumibg">
+                        <div class="himg">
+                            <img id="humidimg" src="" alt=""/>
+                        </div>
+                        <div class="temicon">
+                            <img id="tempicn" src="" alt=""/>
+                        </div>
+                        <div class="humidityt" id="h"></div>
+                        <div class="line"></div>
+                        <div class="tempu" id="tempur"></div>
+                        <div class="tempuratmin" id="tmin"></div>
+                        <div class="tempuratmax" id="tmax"></div>
+                        <div class="hum" id="humadi"></div>
+                    </div>
+                    <div class="pressurebg">
+                        <div class="pressureimg">
+                            <img id="psrimg" src="" alt=""/>
+                        </div>
+                        <div class="pssr" id="psrt"></div>
+                        <div class="prsr" id="press"></div>
+                    </div>
+                    <div class="wispbg">
+                        <div class="windspeedimg">
+                            <img id="wsimg" src="" alt=""/>
+                        </div>
+                        <div class="abc" id="tdt"></div>
+                        <div class="wisp" id="windspeed"></div>
+                    </div>
+                    <div class="visibilitybg">
+                        <div class="vsbimg">
+                            <img id="visibilityimg" src="" alt=""/>
+                        </div>
+                        <div class="vsbt" id="visibilityt"></div>
+                        <div class="vsb" id="visib"></div>
+                    </div>
+                    <div class="cloudbg">
+                        <div class="cldimg">
+                            <img id="cloudimg" src="" alt=""/>
+                        </div>
+                        <div class="cldt" id="cloudt"></div>
+                        <div class="cld" id="cloud"></div>
+                    </div>
+                    <div class="rainbg">
+                        <div class="rnimg">
+                            <img id="rainimg" src="" alt=""/>
+                        </div>
+                        <div class="raint" id="rnt"></div>
+                        <div class="rn" id="rain"></div>
+                    </div>
+                    <div class="snowbg">
+                        <div class="snimg">
+                            <img id="snowimg" src="" alt=""/>
+                        </div>
+                        <div class="snowt" id="snt"></div>
+                        <div class="sn" id="snow"></div>
+                    </div>
+                    <div class="nexttempbg">
+                        <div class="tept1" id="tempt1"></div>
+                        <div class="templine"></div>
+                        <div class="nexttemp1" id="nxttemp1"></div>
+                        <div class="nexttemp2" id="nxttemp2"></div>
+                        <div class="nexttemp3" id="nxttemp3"></div>
+                        <div class="nexttemp4" id="nxttemp4"></div>
+                        <div class="nexttemp5" id="nxttemp5"></div>
+                        <div class="temicon1">
+                            <img id="tempicn1" src="" alt=""/>
+                        </div>
+                    </div>
+                    <div class="nexthumibg">
+                        <div class="humit1" id="humidityt1"></div>
+                        <div class="humiline"></div>
+                        <div class="himg1">
+                            <img id="humidimg1" src="" alt=""/>
+                        </div>
+                        <div class="nexthumi1" id="nxthumi1"></div>
+                        <div class="nexthumi2" id="nxthumi2"></div>
+                        <div class="nexthumi3" id="nxthumi3"></div>
+                        <div class="nexthumi4" id="nxthumi4"></div>
+                        <div class="nexthumi5" id="nxthumi5"></div>
+                    </div>
+                    <div class="nextwispeedbg">
+                        <div class="wispt1" id="wispeedt1"></div>
+                        <div class="wispline"></div>
+                        <div class="windspeedimg1">
+                            <img id="wsimg1" src="" alt=""/>
+                        </div>
+                        <div class="nextwispeed1" id="nxtwisp1"></div>
+                        <div class="nextwispeed2" id="nxtwisp2"></div>
+                        <div class="nextwispeed3" id="nxtwisp3"></div>
+                        <div class="nextwispeed4" id="nxtwisp4"></div>
+                        <div class="nextwispeed5" id="nxtwisp5"></div>
+                    </div>
+                    <div class="forecasttline2"></div>
+                    <div class="forecasttline1"></div>
+                    <div class="forecastt">5 Days Forecast</div>
+                    <div class="cloudsun">
+                        <img id="wicon" src="" alt="" />
+                    </div>
+                    <input class="searchfield" id="s" type="text" value="Paris, France"/>
+                    <button class="searchbutton" id="searchButton" onclick="weath();">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class= "sunarc" id="snarc"></div>
+                    <div class="sunarea" id="snarea">
+                        <div class="sun">
+                            <img id="sn" src="" alt=""/>
+                        </div>
+                    </div>
+                    <div class="sunrisebg">
+                        <div class="sunriset" id="snriset" ></div>
+                        <div class="sunrise" id="snrise"></div>
+                    </div>
+                    <div class="sunsetbg">
+                        <div class="sunsett" id="snsett"></div>
+                        <div class ="sunset" id="snset"></div>
+                    </div>
+                    <div class="ws" id="wsituation"></div>
+                    <div class="dow" id="day"></div>
+                    <div class="fadate1" id="fd1"></div>
+                    <div class="fadate2" id="fd2"></div>
+                    <div class="fadate3" id="fd3"></div>
+                    <div class="fadate4" id="fd4"></div>
+                    <div class="fadate5" id="fd5"></div>
+                    <footer>
+                        <div class="copyright">&copy Created by the Weather Impulse Team</div>
+                        <div>
+                     
+                        </div>
+                    </footer>
+                    <script>
+         $("div").css("visibility","hidden");
+            function weath(){
+            $("div").css("visibility","visible");
+                var city= document.getElementById('s').value;
+                 
+          $.getJSON("https://api.openweathermap.org/data/2.5/forecast?q="+ city+"&units=metric&APPID=cea188adfa2443c97eb0f91e1b572f71", weathergetdata); 
+          
+          function weathergetdata(abc){
+          var tempurat=abc.list[0].main.temp;
+          var humidit=abc.list[0].main.humidity;
+          var wind=abc.list[0].wind.speed;
+          var tempmin = abc.list[0].main.temp_min;
+          var tempmax= abc.list[0].main.temp_max;
+          var fogg= abc.list[0].clouds.all;
+          var pressure= abc.list[0].main.pressure;
+          var i;
+            var tempuratii1=abc.list[7].main["temp"];
+          var humiditii1=abc.list[7].main.humidity;
+          var windii1=abc.list[7].wind.speed;
+            var tempuratii2=abc.list[15].main["temp"];
+          var humiditii2=abc.list[15].main.humidity;
+          var windii2=abc.list[15].wind.speed;
+             var tempuratii3=abc.list[23].main["temp"];
+          var humiditii3=abc.list[23].main.humidity;
+          var windii3=abc.list[23].wind.speed;
+             var tempuratii4=abc.list[31].main["temp"];
+          var humiditii4=abc.list[31].main.humidity;
+          var windii4=abc.list[31].wind.speed;
+          var date1= abc.list[0].dt;
+          var date2= abc.list[8].dt;
+          var date3= abc.list[16].dt;
+          var date4= abc.list[24].dt;
+          var date5= abc.list[32].dt;
+          var days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+          var d1= new Date(date1*1000);
+          var monthindex1= d1.getMonth();
+          var month1=months[monthindex1];
+          var date1=d1.getDate();
+          var dayindex1=d1.getDay();
+          var day1= days[dayindex1];
+          var hours1=d1.getHours();
+          var minutes1= d1.getMinutes();
+          document.getElementById("fd1").innerHTML= month1 +","+ date1 + "</br>"+ day1 +"</br>"+ hours1+":"+ minutes1;
+          var d2= new Date(date2*1000);
+          var monthindex2= d2.getMonth();
+          var month2=months[monthindex2];
+          var date2=d2.getDate();
+          var dayindex2=d2.getDay();
+          var day2= days[dayindex2];
+          var hours2=d2.getHours();
+          var minutes2= d2.getMinutes();
+          document.getElementById("fd2").innerHTML= month2 +","+ date2 + "    </br>"+ day2 +"</br>"+ hours2+":"+ minutes2;
+          var d3= new Date(date3*1000);
+          var monthindex3= d3.getMonth();
+          var month3=months[monthindex3];
+          var date3=d3.getDate();
+          var dayindex3=d3.getDay();
+          var day3= days[dayindex3];
+          var hours3=d3.getHours();
+          var minutes3= d3.getMinutes();
+          document.getElementById("fd3").innerHTML= month3 +","+ date3 + "</br>"+ day3 +"</br>"+ hours3+":"+ minutes3;
+          var d4= new Date(date4*1000);
+          var monthindex4= d4.getMonth();
+          var month4=months[monthindex1];
+          var date4=d4.getDate();
+          var dayindex4=d4.getDay();
+          var day4= days[dayindex4];
+          var hours4=d4.getHours();
+          var minutes4= d4.getMinutes();
+          document.getElementById("fd4").innerHTML= month4 +","+ date4 + "</br>"+ day4 +"</br>"+ hours4+":"+ minutes4;
+          var d5= new Date(date5*1000);
+          var monthindex5= d5.getMonth();
+          var month5=months[monthindex5];
+          var date5=d5.getDate();
+          var dayindex5=d5.getDay();
+          var day5= days[dayindex5];
+          var hours5=d5.getHours();
+          var minutes5= d5.getMinutes();
+          document.getElementById("fd5").innerHTML= month5 +","+ date5 + "</br>"+ day5 +"</br>"+ hours5+":"+ minutes5;
+           document.getElementById("nxttemp1").innerHTML= Math.floor(tempurat) + "°C";
+            document.getElementById("nxttemp2").innerHTML=Math.floor(tempuratii1) +"°C ";
+             document.getElementById("nxttemp3").innerHTML=Math.floor(tempuratii2) +"°C ";
+             document.getElementById("nxttemp4").innerHTML= Math.floor(tempuratii3) +"°C ";
+             document.getElementById("nxttemp5").innerHTML= Math.floor(tempuratii3) +"°C ";
+          document.getElementById("nxthumi1").innerHTML= Math.floor(humidit) +"% ";
+          document.getElementById("nxthumi2").innerHTML=Math.floor(humiditii1) +"% ";
+          document.getElementById("nxthumi3").innerHTML= Math.floor(humiditii2) +"% ";
+          document.getElementById("nxthumi4").innerHTML= Math.floor(humiditii3) +"% ";
+          document.getElementById("nxthumi5").innerHTML= Math.floor(humiditii4) +"%";
+         document.getElementById("nxtwisp1").innerHTML= Math.floor(wind) +"km/h ";
+         document.getElementById("nxtwisp2").innerHTML= Math.floor(windii1) +"km/h ";
+         document.getElementById("nxtwisp3").innerHTML= Math.floor(windii2) +"km/h ";
+         document.getElementById("nxtwisp4").innerHTML= Math.floor(windii3) +"km/h ";
+         document.getElementById("nxtwisp5").innerHTML= Math.floor(windii4) +"km/h";
+         document.getElementById("humidimg1").setAttribute("src" , "https://scontent.fdac4-1.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/50154972_751718638546322_5594989257241395200_n.jpg?_nc_cat=104&efg=eyJpIjoidCJ9&_nc_eui2=AeGyWZO0hX48-13fJ7nhun8UJrsZVpwSN38k8fR_OcA5KnN3_C9pmByjAQl2GCCPNVhe0EjktXEW0uYW0G9l_vuT6xhA1EuqugSafQdt1q5fYg&_nc_oc=AQlULaEfDBqs9yf8x3-FwUUJefUF0rg0WOWV-UzuOThFmhvpyeQMbosTxAyasCsoLuw&_nc_ht=scontent.fdac4-1.fna&oh=e6f6a620a368d5357a143a57d37abce1&oe=5D2EF74F");
+         document.getElementById("tempicn1").setAttribute("src", "https://scontent.fdac4-1.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/50340755_752016385183214_6281485375156256768_n.jpg?_nc_cat=105&efg=eyJpIjoidCJ9&_nc_eui2=AeHRlU6CKWOsfG5t4ji__ZRx5gLzpBXH-U0RKOKkjaADuFSYCvoXPVWqFxd2sKyUaUYrimh1rx34l9hgf-lkfS5DD6b_JzX4BCVhHYk6Re_eqQ&_nc_oc=AQkIL6nf9shEbK5fKJfcggqKy34suE7ugcvkhO_-qJszM-aSlJWJP3rDoYj3VJjvSy0&_nc_ht=scontent.fdac4-1.fna&oh=604dcfc5b71ce448daabaaddd8e6e31f&oe=5D643D4C");
+       document.getElementById("wsimg1").setAttribute("src","https://image.flaticon.com/icons/svg/959/959711.svg");
+       document.getElementById("humidimg").setAttribute("src" , "https://scontent.fdac4-1.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/50154972_751718638546322_5594989257241395200_n.jpg?_nc_cat=104&efg=eyJpIjoidCJ9&_nc_eui2=AeGyWZO0hX48-13fJ7nhun8UJrsZVpwSN38k8fR_OcA5KnN3_C9pmByjAQl2GCCPNVhe0EjktXEW0uYW0G9l_vuT6xhA1EuqugSafQdt1q5fYg&_nc_oc=AQlULaEfDBqs9yf8x3-FwUUJefUF0rg0WOWV-UzuOThFmhvpyeQMbosTxAyasCsoLuw&_nc_ht=scontent.fdac4-1.fna&oh=e6f6a620a368d5357a143a57d37abce1&oe=5D2EF74F");
+       document.getElementById("tempicn").setAttribute("src", "https://scontent.fdac4-1.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/50340755_752016385183214_6281485375156256768_n.jpg?_nc_cat=105&efg=eyJpIjoidCJ9&_nc_eui2=AeHRlU6CKWOsfG5t4ji__ZRx5gLzpBXH-U0RKOKkjaADuFSYCvoXPVWqFxd2sKyUaUYrimh1rx34l9hgf-lkfS5DD6b_JzX4BCVhHYk6Re_eqQ&_nc_oc=AQkIL6nf9shEbK5fKJfcggqKy34suE7ugcvkhO_-qJszM-aSlJWJP3rDoYj3VJjvSy0&_nc_ht=scontent.fdac4-1.fna&oh=604dcfc5b71ce448daabaaddd8e6e31f&oe=5D643D4C");
+       document.getElementById("wsimg").setAttribute("src","https://image.flaticon.com/icons/svg/959/959711.svg");
+       document.getElementById("psrimg").setAttribute("src","https://scontent.fdac4-1.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/50533487_752272528490933_1998310783745785856_n.jpg?_nc_cat=102&efg=eyJpIjoidCJ9&_nc_eui2=AeEwfjTgiHaCB2qWfu40C8-kMo3uJ5_GqUllKB9Lrhi2jRQIipZ8x2-pq3gyiUjzHmAJT0yPbtrWKXWKFNqC-8cuk0ijDIobrDvjHrmJC-8iAg&_nc_oc=AQk1cEj50_eV8ekhnxsJekJvFv-_TaIXSRu1KPa7f7QDu88jmrbbvIlEB6wr31yW5Ho&_nc_ht=scontent.fdac4-1.fna&oh=4dbedc7cf26ed15a38bd104835c34cb2&oe=5D654248")
+       document.getElementById("rainimg").setAttribute("src", "https://image.flaticon.com/icons/svg/1404/1404885.svg");
+       document.getElementById("snowimg").setAttribute("src", "https://scontent.fdac18-1.fna.fbcdn.net/v/t1.0-9/50598004_752653918452794_6721132967902576640_n.jpg?_nc_cat=105&_nc_oc=AQnCg9s9L2w5y1b2rbuQnDIzOjBDaY01jQVzLD5-sUMCUXJ_Fw2yav3sp95LZkteB8s&_nc_ht=scontent.fdac18-1.fna&oh=ea71dcc92c7128b04d9ecad6860342a1&oe=5D328F5A");
+       document.getElementById("visibilityimg").setAttribute("src", "https://image.flaticon.com/icons/svg/535/535193.svg");
+       document.getElementById("cloudimg").setAttribute("src", "https://image.flaticon.com/icons/svg/149/149209.svg");
+   document.getElementById("tempt1").innerHTML="Tempurature";
+      document.getElementById("humidityt1").innerHTML="Humidity";
+       document.getElementById("wispeedt1").innerHTML="Wind-speed";
+       document.getElementById("h").innerHTML="Humidity";
+       document.getElementById("tdt").innerHTML="Wind-speed";
+       document.getElementById("psrt").innerHTML="Pressure";
+       document.getElementById("rnt").innerHTML="Rainfall";
+       document.getElementById("snt").innerHTML="Snowfall";
+     document.getElementById("tempur").innerHTML=  tempurat +"°C";   
+     document.getElementById("tmin").innerHTML= "Min:" + tempmin +"°C";   
+     document.getElementById("tmax").innerHTML= "Max:" + tempmax +"°C";   
+                  document.getElementById("humadi").innerHTML= humidit +"%";
+         document.getElementById("windspeed").innerHTML=wind +" "+"km/h";
+         document.getElementById("press").innerHTML=pressure +"hpa";
+        document.getElementById("cloud").innerHTML=fogg +"%";
+        document.getElementById("visibilityt").innerHTML= "Visibility";
+        document.getElementById("cloudt").innerHTML="Cloud";
+         }
+          $.getJSON("https://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=metric&APPID=cea188adfa2443c97eb0f91e1b572f71", weathergetdata1);
+          function weathergetdata1(def){  
+          var visibility= def.visibility;
+          var wsi=def.weather[0].main;
+          var wicn= def.weather[0].icon;
+         if(wicn =="01d"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Hot_Sun_Day-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/sun_light_patches_of_light_mountains_outlines_53999_480x800.jpg")';
+         }
+         if(wicn =="01n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Moon_Night_Sky-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/stars_sky_starry_sky_glitter_galaxy_space_118752_480x800.jpg")';
+         }
+         if(wicn =="02d"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Sunny_Sun_Cloudy-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/clouds_porous_sky_116078_480x800.jpg")';
+         }
+         if(wicn =="02n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Moon_Night_Cloud-512.png");
+            document.body.style.backgroundImage= 'url("https://wallpaperscraft.com/download/clouds_sky_light_beams_14656/480x800")';
+         }
+         if(wicn =="03d"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Cloudy_Season_Cloud-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/clouds_sky_porous_135734_480x800.jpg")';
+         }
+         if(wicn =="03n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Cloudy_Season_Cloud-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/clouds_sky_night_outlines_blue_black_trees_14977_480x800.jpg")';
+         }
+         if(wicn =="04d"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather06-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/clouds_sky_dark_127697_480x800.jpg")';
+         }
+         if(wicn =="04n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather06-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/clouds_sky_night_114899_480x800.jpg")';
+         }
+         if(wicn =="09d"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/rain_drops_water_84006_480x800.jpg")';
+         }
+         if(wicn =="09n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/rain_drops_splashes_heavy_rain_dullness_bad_weather_60638_480x800.jpg")';
+         }
+          if(wicn =="10d"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Sunny_Rain_Climate-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/leaf_drops_rain_autumn_water_48307_480x800.jpg")';
+         }
+          if(wicn =="10n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Night_Rain_Climate-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/rain_glare_glass_drops_92855_480x800.jpg")';
+         }
+         if(wicn =="11d"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Lightning_Cloud_Storm-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/lightning_thunderstorm_overcast_128020_480x800.jpg")';
+         }
+         if(wicn =="11n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Lightning_Cloud_Storm-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/thunderstorm_lightning_sky_horizon_night_118330_480x800.jpg")';
+         }
+         
+         if(wicn =="13d"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather14-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/snowfall_snowflakes_snow_131502_480x800.jpg")';
+         }
+         if(wicn =="13n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather14-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/snowfall_night_city_135510_480x800.jpg")';
+         }
+         
+         if(wicn =="50d"||wicn=="50n"){
+            $("#wicon").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Typhoon_Hurricane_Climate-512.png");
+            document.body.style.backgroundImage= 'url("https://images.wallpaperscraft.com/image/fog_road_trees_135964_480x800.jpg")';
+         }
+         document.body.style.backgroundRepeat="no-repeat";
+         document.body.style.backgroundAttachment="fixed";
+         document.body.style.backgroundSize="cover";
+          document.getElementById("wsituation").innerHTML= wsi;
+    var timezone=def.timezone;
+    var sunsett=def.sys.sunset;
+    var t=timezone+sunsett;
+    var x=Math.floor((t)/86400);
+    var y=t-(x*86400);
+    var z=Math.floor(y/3600);
+    var p=y-(z*3600);
+    var q=Math.floor(p/60);
+    var r=p-(q*60);
+    var sunriset=def.sys.sunrise;
+    var w=timezone+sunriset;
+    var a=Math.floor(w/86400);
+    var b=w-(a*86400);
+    var c=Math.floor(b/3600);
+    var d=b-(c*3600);
+    var e=Math.floor(d/60);
+    var f=d-(e*60);
+    var tsunriseset= sunsett-sunriset;
+    var currenttimet=def.dt;
+    var risesetd=(currenttimet-sunriset)*180/(sunsett-sunriset);
+   //var risesetdeg="rotate("+risesetd+"deg);";
+     var degrees = 0; 
+    var sun= document.getElementById('snarea');
+    var t = setInterval(move, 10);
+   function move(){
+       
+    if(degrees>=risesetd){
+        clearInterval(t);
+    }
+     else if(degrees>180){
+           sun.style.transform = "rotate(170deg)";
+        }
+        else{
+        degrees+=1;
+            sun.style.transform = "rotate("+degrees+"deg)";
+            }
+    }
+    var risehour=(b-d)/3600 ;
+    var riseminute=(d-f)/60 ;
+    var risetime= risehour +" : " +riseminute+" AM " ;
+    document.getElementById("snrise").innerHTML= risetime;
+    var sethour=(y-p)/3600-12;
+    var setminute= (p-r)/60;
+    var settime= sethour +" : " +setminute+" PM " ;
+    document.getElementById("snset").innerHTML
+= settime; 
+document.getElementById("snriset").innerHTML="Sunrise" ;
+document.getElementById("snsett").innerHTML="Sunset" ;
+$("#sn").attr("src", "https://cdn2.iconfinder.com/data/icons/weather-and-forecast-free/32/Weather_Weather_Forecast_Hot_Sun_Day-512.png") ;
+          if(def.rain){
+            document.getElementById("rain").innerHTML= def.rain["3h"]+"mm";
+        }
+        else{
+            document.getElementById("rain").innerHTML="0 mm"
+        }
+            if(def.snow){
+            document.getElementById("snow").innerHTML= def.snow["3h"] +"mm";
+        }
+        else{
+            document.getElementById("snow").innerHTML="0 mm"
+        }
+        if(visibility){
+             document.getElementById("visib").innerHTML=visibility +"m";
+         }
+         else{
+             document.getElementById("visib").innerHTML=".../..";
+}
+        var days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var months=["January","February","March","April","May","June","July","August","September","October","November","December"]
+var d= new Date();
+var dayindex= d.getDay();
+var day= days[dayindex];
+var monthindex= d.getMonth();
+var month=months[monthindex];
+var date= d.getDate();
+document.getElementById("day").innerHTML= day +" "+ month +", "+ date;
+        }
+     }
+    
 
-<div class = "BackgroundPic">
- 
-<div id="picture"><img src="https://s.yimg.com/cv/apiv2/welovetheearth/images/optimized/earth-hug.png">
-</div>
-</div>
 
-
-
-
-<div id="muhapis">
-<div id="API">
-<div class="container">
-    <div class="weather">
-    <p id="countryName"></p>
-        <br>
-    <span id="today"></span><span id="time"></span><span id="weatherMessage"></span>
-    <br>
-    <br>
-    <span id="humidity"></span><br>
-     <span id="wind"></span>
-         <img id="wicon" src="https://3.bp.blogspot.com/-5cwwlLQu8bo/XECMHgIVzCI/AAAAAAAAJt8/ClauVHrwuoY57oxVizxGHNHpVv0xunkSwCLcBGAs/s1600/lg.liquid-fill-preloader.gif" width="50%" alt="Weather icon"><span id="currentWeather"></span>
-    </div>
-</div>
-<br>
-<br>
-</br>
-<br/>
-<br>
-<iframe width="50%" height="500" id="gmap" src="" frameborder="" scrolling="no" marginheight="" marginwidth=""></iframe>
-</div>
-</div>
-
-
-
-<button type="button" class="btn btn-info" onClick="alert('Weather Impulse App by Muaz, Chris, and Hamidou. Powered by OpenWeatherMap')">Info</button>
-</body>
-
-<script src="js/script.js"></script>
-</html>
+        </script></body></html>  
